@@ -123,6 +123,11 @@ textarea {
     resize: vertical;
 }
 
+input[type="file"] {
+    font: inherit;
+    font-weight: normal;
+}
+
 .columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -193,4 +198,26 @@ dd {
 
 button.htmx-request::after {
     content: "…";
+}
+
+.classifications {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+}
+
+.classifications th,
+.classifications td {
+    padding: 4px 8px 4px 0;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.classifications th {
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.classifications td[title] {
+    cursor: help;
 }

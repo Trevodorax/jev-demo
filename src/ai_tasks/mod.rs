@@ -1,3 +1,5 @@
+pub mod bulk_comment_classification;
+pub mod comment_classification;
 pub mod rules_check;
 
 use std::fmt;

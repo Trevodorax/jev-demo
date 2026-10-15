@@ -1,3 +1,5 @@
+mod bulk_comment_classification;
+mod comment_classification;
 mod components;
 mod rules_check;
 
@@ -16,10 +18,18 @@ pub struct UseCase {
     description: &'static str,
 }
 
-const USE_CASES: [&UseCase; 1] = [&rules_check::USE_CASE];
+const USE_CASES: [&UseCase; 3] = [
+    &rules_check::USE_CASE,
+    &comment_classification::USE_CASE,
+    &bulk_comment_classification::USE_CASE,
+];
 
 pub fn router() -> Router {
-    Router::new().route("/", get(home)).merge(rules_check::router())
+    Router::new()
+        .route("/", get(home))
+        .merge(rules_check::router())
+        .merge(comment_classification::router())
+        .merge(bulk_comment_classification::router())
 }
 
 fn model_id(model: Model) -> &'static str {

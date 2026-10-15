@@ -1,6 +1,6 @@
 use std::time::Duration;
 
-use maud::{Markup, html};
+use maud::{Markup, Render, html};
 
 use super::{model_id, model_name};
 use crate::ai_tasks::{TaskError, TaskResult};
@@ -22,11 +22,11 @@ pub fn model_column(model: Model, run_path: &str) -> Markup {
     }
 }
 
-pub fn result<T>(
+pub fn result<T, R: Render>(
     model: Model,
     result: Result<TaskResult<T>, TaskError>,
     elapsed: Duration,
-    display: impl Fn(T) -> String,
+    display: impl Fn(T) -> R,
 ) -> Markup {
     match result {
         Ok(result) => html! {

@@ -16,6 +16,8 @@ The purpose of this repo is to check if the things that I heard about jev (that 
 We'll be comparing jev to traditional LLMs for multiple use cases:
 
 - Checking that a given message respects given rules
+- Classification of comments on a product (by category -> choice, by satisfaction level -> Score, by urgency -> Noul)
+- The same classification, but with all the comments in a single request for each model
 
 ### Demo process
 
